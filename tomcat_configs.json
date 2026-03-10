@@ -1,0 +1,54 @@
+{
+  "TOMCAT_DIR": "C:\\workspace\\tomcat",
+  "JAVA_DIR": "C:\\workspace\\java",
+  "MANAGER_USERS": [
+    {
+      "username": "admin",
+      "password": "123",
+      "roles": "manager-gui"
+    },
+    {
+      "username": "robot",
+      "password": "123",
+      "roles": "manager-script"
+    }
+  ],
+  "JAVA_VERSIONS": {
+    "1.7": {
+      "CONNECTORS": {
+        "HTTP/1.1": "8080",
+        "AJP/1.3": "8010"
+      },
+      "SHUTDOWN_PORT": "8000",
+      "JAVA_HOME": "C:\\workspace\\java\\jdk1.7.0_80",
+      "CATALINA_HOME": "C:\\workspace\\tomcat\\apache-tomcat-7.0.69"
+    },
+    "1.8": {
+      "CONNECTORS": {
+        "HTTP/1.1": "8081",
+        "AJP/1.3": "8011"
+      },
+      "SHUTDOWN_PORT": "8001",
+      "JAVA_HOME": "C:\\workspace\\java\\jdk1.8.0_202",
+      "CATALINA_HOME": "C:\\workspace\\tomcat\\apache-tomcat-9.0.102"
+    },
+    "17": {
+      "CONNECTORS": {
+        "HTTP/1.1": "8082",
+        "AJP/1.3": "8012"
+      },
+      "SHUTDOWN_PORT": "8002",
+      "JAVA_HOME": "C:\\workspace\\java\\jdk-17.0.7",
+      "CATALINA_HOME": "C:\\workspace\\tomcat\\apache-tomcat-11.0.5"
+    },
+    "21": {
+      "CONNECTORS": {
+        "HTTP/1.1": "8083",
+        "AJP/1.3": "8013"
+      },
+      "SHUTDOWN_PORT": "8003",
+      "JAVA_HOME": "C:\\workspace\\java\\jdk-21.0.7",
+      "CATALINA_HOME": "C:\\workspace\\tomcat\\apache-tomcat-11.0.9"
+    }
+  }
+}
