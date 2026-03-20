@@ -26,7 +26,7 @@ class TomcatInstance {
 
 $JavaVersion = $JavaVersion.Trim()
 if ([String]::IsNullOrEmpty($JavaVersion)) {
-    Write-Error "JavaVersion is null!"
+    Write-Error "[ERROR] JavaVersion is null!"
     exit 1
 }
 
