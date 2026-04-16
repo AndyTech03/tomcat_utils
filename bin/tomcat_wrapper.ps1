@@ -1,8 +1,4 @@
 $catalina = "$env:CATALINA_HOME\bin\catalina.bat"
-Write-Host "[INFO] env CATALINA_HOME = $($env:CATALINA_HOME)"
-Write-Host "[INFO] env JAVA_HOME = $($env:JAVA_HOME)"
-Write-Host "[INFO] catalina = $($catalina)"
-Write-Host "`n"
 
 try {
     & $catalina run

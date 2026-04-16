@@ -30,31 +30,12 @@ if ([String]::IsNullOrEmpty($JavaVersion)) {
     exit 1
 }
 
-$rootDir = $PSScriptRoot | Split-Path
-$tomcat_configs_path = "$rootDir\tomcat_configs.json"
+$binDir = $PSScriptRoot
+$rootDir = $binDir | Split-Path
 $tomcat_registry_path = "$rootDir\tomcat_registry.json"
-$tomcat_wrapper_path = "$($PSScriptRoot)\tomcat_wrapper.ps1"
+$tomcat_wrapper_path = "$binDir\tomcat_wrapper.ps1"
+$activate_tomcat_env_path = "$binDir\activate_tomcat_env.ps1"
 
-$serializer = [System.Web.Script.Serialization.JavaScriptSerializer]::new()
-[TomcatConfigs] $tomcat_configs = $serializer.Deserialize((Get-Content -Path $tomcat_configs_path), [TomcatConfigs])
-[TomcatConfig] $tomcat_config = $tomcat_configs.JAVA_VERSIONS[$JavaVersion]
-if ($null -eq $tomcat_config) {
-    Write-Error "[ERROR] Config for JavaVersion='$($JavaVersion)' not found in $tomcat_configs_path"
-    exit 1
-}
-
-$CATALINA_HOME = $tomcat_config.CATALINA_HOME
-$JAVA_HOME = $tomcat_config.JAVA_HOME
-[System.Environment]::SetEnvironmentVariable("CATALINA_HOME", $CATALINA_HOME, "User")
-[System.Environment]::SetEnvironmentVariable("JAVA_HOME", $JAVA_HOME, "User")
-$env:CATALINA_HOME = $CATALINA_HOME
-$env:JAVA_HOME = $JAVA_HOME
-if (!$Silent) {
-    Write-Host "[INFO] Envoirement setuped for JavaVersion='$JavaVersion'"
-}
-Write-Host "[INFO] env CATALINA_HOME = $($env:CATALINA_HOME)"
-Write-Host "[INFO] env JAVA_HOME = $($env:JAVA_HOME)"
-Write-Host "`n"
 
 function GetTomcatInstances {
     if (-not (Test-Path $tomcat_registry_path)) {
@@ -184,11 +165,14 @@ function StartTomcat {
     if (!$Silent) {
         Write-Host "[INFO] Preparing Tomcat..."
     }
+    # Enable selected env
+    . "$activate_tomcat_env_path" $JavaVersion -Silent:$Silent
+    # Run catalina wrapper
     $catalinaProcess = Start-Process -FilePath "powershell.exe" -ArgumentList "-File `"$tomcat_wrapper_path`"" -PassThru
     $catalinaPid = $catalinaProcess.Id
     if (!$Silent) {
         Write-Host "[INFO] Tomcat process started with Pid=$catalinaPid"
-        Write-Host "[INFO] Tomcat address: http://localhost:$($tomcat_config.CONNECTORS['HTTP/1.1'])"
+        Write-Host "[INFO] Tomcat address: $env:TOMCAT_HOST"
     }
     RegisterTomcat $catalinaPid
 }

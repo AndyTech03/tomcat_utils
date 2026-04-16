@@ -1,6 +1,7 @@
 {
-  "TOMCAT_DIR": "C:\\workspace\\tomcat",
-  "JAVA_DIR": "C:\\workspace\\java",
+  "TOMCAT_DIR": "C:\\workspace\\.tomcat",
+  "JAVA_DIR": "C:\\workspace\\.java",
+  "MAVEN_DIR": "C:\\workspace\\.maven",
   "MANAGER_USERS": [
     {
       "username": "admin",
@@ -20,8 +21,9 @@
         "AJP/1.3": "8010"
       },
       "SHUTDOWN_PORT": "8000",
-      "JAVA_HOME": "C:\\workspace\\java\\jdk1.7.0_80",
-      "CATALINA_HOME": "C:\\workspace\\tomcat\\apache-tomcat-7.0.69"
+      "JAVA_HOME": "C:\\workspace\\.java\\jdk1.7.0_80",
+      "CATALINA_HOME": "C:\\workspace\\.tomcat\\apache-tomcat-8.5.100",
+      "MAVEN_HOME": "C:\\workspace\\.maven\\apache-maven-3.2.5"
     },
     "1.8": {
       "CONNECTORS": {
@@ -29,8 +31,9 @@
         "AJP/1.3": "8011"
       },
       "SHUTDOWN_PORT": "8001",
-      "JAVA_HOME": "C:\\workspace\\java\\jdk1.8.0_202",
-      "CATALINA_HOME": "C:\\workspace\\tomcat\\apache-tomcat-9.0.102"
+      "JAVA_HOME": "C:\\workspace\\.java\\corretto-1.8.0_482",
+      "CATALINA_HOME": "C:\\workspace\\.tomcat\\apache-tomcat-9.0.117",
+      "MAVEN_HOME": "C:\\workspace\\.maven\\apache-maven-3.9.14"
     },
     "17": {
       "CONNECTORS": {
@@ -38,8 +41,9 @@
         "AJP/1.3": "8012"
       },
       "SHUTDOWN_PORT": "8002",
-      "JAVA_HOME": "C:\\workspace\\java\\jdk-17.0.7",
-      "CATALINA_HOME": "C:\\workspace\\tomcat\\apache-tomcat-11.0.5"
+      "JAVA_HOME": "C:\\workspace\\.java\\jdk-17.0.7",
+      "CATALINA_HOME": "C:\\workspace\\.tomcat\\apache-tomcat-9.0.117",
+      "MAVEN_HOME": "C:\\workspace\\.maven\\apache-maven-3.9.14"
     },
     "21": {
       "CONNECTORS": {
@@ -47,8 +51,9 @@
         "AJP/1.3": "8013"
       },
       "SHUTDOWN_PORT": "8003",
-      "JAVA_HOME": "C:\\workspace\\java\\jdk-21.0.7",
-      "CATALINA_HOME": "C:\\workspace\\tomcat\\apache-tomcat-11.0.9"
+      "JAVA_HOME": "C:\\workspace\\.java\\jdk-21.0.7",
+      "CATALINA_HOME": "C:\\workspace\\.tomcat\\apache-tomcat-9.0.117",
+      "MAVEN_HOME": "C:\\workspace\\.maven\\apache-maven-3.9.14"
     }
   }
 }
